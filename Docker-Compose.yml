@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Hitman@45
+      MYSQL_DATABASE: hotelmanagement
+    ports:
+      - "3306:3306"
+
+  myapp:
+    image: openjdk:17-jdk-slim
+    container_name: myapp-container
+    depends_on:
+      - mysql
+    volumes:
+      - ./target/hotelbooking-0.0.1-SNAPSHOT.jar:/app/app.jar
+    working_dir: /app
+    command: sh -c "sleep 20 && java -jar app.jar"
+    ports:
+      - "8087:8087"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/hotelmanagement
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: Hitman@45
