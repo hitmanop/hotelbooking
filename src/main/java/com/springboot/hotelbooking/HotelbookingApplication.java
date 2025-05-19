@@ -13,6 +13,8 @@ public class HotelbookingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HotelbookingApplication.class, args);
 	}
+	//test
+	//abcd
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
