@@ -15,6 +15,7 @@ public class HotelbookingApplication {
 	}
 	//test
 	//abcd
+	//newbranch
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
